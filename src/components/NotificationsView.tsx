@@ -131,76 +131,91 @@ const NotificationsView = () => {
   const unreadCount = notifications.filter(n => !n.read).length;
 
   return (
-    <div className="space-y-6 animate-fade-in">
+    <div className="space-y-8">
       {/* Real-time notification alert */}
       {showNotificationAlert && (
-        <div className="fixed top-4 right-4 z-50 bg-gradient-card border border-primary p-4 rounded-lg glow-effect animate-slide-in">
+        <div className="fixed top-4 right-4 z-50 bg-white/90 backdrop-blur-sm border border-[hsl(32_100%_50%)] p-4 rounded-xl shadow-lg animate-slide-in">
           <div className="flex items-center gap-3">
-            <Bell className="w-5 h-5 text-primary" />
+            <div className="w-8 h-8 rounded-lg bg-[hsl(30_95%_90%)] flex items-center justify-center">
+              <Bell className="w-4 h-4 text-[hsl(32_100%_50%)]" />
+            </div>
             <div>
-              <div className="font-semibold text-card-foreground">New Notification</div>
-              <div className="text-sm text-muted-foreground">A new complaint has been received</div>
+              <div className="font-semibold text-neutral-900">New Notification</div>
+              <div className="text-sm text-neutral-600">A new complaint has been received</div>
             </div>
           </div>
         </div>
       )}
 
-      <div className="flex flex-col lg:flex-row gap-4 items-start lg:items-center justify-between">
-        <div>
-          <h1 className="text-3xl font-bold text-foreground">Notifications</h1>
-          <p className="text-muted-foreground mt-2">
-            {unreadCount > 0 ? `${unreadCount} unread notifications` : 'All notifications read'}
-          </p>
-        </div>
-        
+      <div className="text-center mb-12">
+        <h1 className="text-5xl font-extrabold text-neutral-900 mb-4">
+          Notifications
+        </h1>
+        <p className="text-xl text-neutral-600 max-w-2xl mx-auto">
+          Stay updated with real-time civic alerts and system notifications
+        </p>
         {unreadCount > 0 && (
-          <Button
-            onClick={markAllAsRead}
-            className="bg-gradient-button text-white glow-effect hover:scale-105 transition-transform"
-          >
-            <Check className="w-4 h-4 mr-2" />
-            Mark All as Read
-          </Button>
+          <div className="mt-6">
+            <Button
+              onClick={markAllAsRead}
+              className="bg-gradient-to-r from-[hsl(32_100%_50%)] to-[hsl(25_95%_55%)] text-white hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+            >
+              <Check className="w-4 h-4 mr-2" />
+              Mark All as Read ({unreadCount})
+            </Button>
+          </div>
         )}
       </div>
 
       <div className="space-y-4">
         {notifications.length === 0 ? (
-          <div className="text-center py-12 bg-gradient-card rounded-xl border border-border">
-            <Bell className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
-            <h3 className="text-lg font-semibold text-card-foreground mb-2">No Notifications</h3>
-            <p className="text-muted-foreground">You're all caught up! New notifications will appear here.</p>
+          <div className="text-center py-16 bg-white/70 backdrop-blur-sm rounded-2xl border border-white/20 shadow-lg">
+            <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-neutral-100 flex items-center justify-center">
+              <Bell className="w-10 h-10 text-neutral-400" />
+            </div>
+            <h3 className="text-2xl font-bold text-neutral-900 mb-2">No Notifications</h3>
+            <p className="text-neutral-600">You're all caught up! New notifications will appear here.</p>
           </div>
         ) : (
           notifications.map((notification, index) => (
             <div
               key={notification.id}
-              className={`bg-gradient-card border-l-4 ${getNotificationColor(notification.type)} p-6 rounded-lg border border-border card-hover ${
+              className={`bg-white/70 backdrop-blur-sm border-l-4 p-6 rounded-2xl border border-white/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 ${
                 !notification.read ? 'bg-opacity-100' : 'bg-opacity-50'
+              } ${
+                notification.type === 'warning' ? 'border-l-orange-500' :
+                notification.type === 'success' ? 'border-l-green-500' :
+                'border-l-[hsl(32_100%_50%)]'
               }`}
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="flex items-start justify-between">
                 <div className="flex items-start gap-4 flex-1">
                   <div className="mt-1">
-                    {getNotificationIcon(notification.type)}
+                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${
+                      notification.type === 'warning' ? 'bg-orange-50' :
+                      notification.type === 'success' ? 'bg-green-50' :
+                      'bg-[hsl(30_95%_90%)]'
+                    }`}>
+                      {getNotificationIcon(notification.type)}
+                    </div>
                   </div>
                   
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-2">
-                      <h3 className={`font-semibold ${notification.read ? 'text-muted-foreground' : 'text-card-foreground'}`}>
+                      <h3 className={`text-lg font-semibold ${notification.read ? 'text-neutral-500' : 'text-neutral-900'}`}>
                         {notification.title}
                       </h3>
                       {!notification.read && (
-                        <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+                        <div className="w-2 h-2 bg-[hsl(32_100%_50%)] rounded-full animate-pulse"></div>
                       )}
                     </div>
                     
-                    <p className={`text-sm mb-3 ${notification.read ? 'text-muted-foreground' : 'text-card-foreground'}`}>
+                    <p className={`text-sm mb-3 ${notification.read ? 'text-neutral-500' : 'text-neutral-700'}`}>
                       {notification.message}
                     </p>
                     
-                    <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                    <div className="flex items-center gap-2 text-xs text-neutral-500">
                       <Clock className="w-3 h-3" />
                       <span>{formatTimestamp(notification.timestamp)}</span>
                     </div>
@@ -213,7 +228,7 @@ const NotificationsView = () => {
                       onClick={() => markAsRead(notification.id)}
                       size="sm"
                       variant="outline"
-                      className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+                      className="border-[hsl(32_100%_50%)] text-[hsl(32_100%_50%)] hover:bg-[hsl(32_100%_50%)] hover:text-white transition-all duration-300"
                     >
                       <Check className="w-3 h-3" />
                     </Button>
@@ -223,7 +238,7 @@ const NotificationsView = () => {
                     onClick={() => deleteNotification(notification.id)}
                     size="sm"
                     variant="outline"
-                    className="border-destructive text-destructive hover:bg-destructive hover:text-destructive-foreground"
+                    className="border-red-500 text-red-500 hover:bg-red-500 hover:text-white transition-all duration-300"
                   >
                     <Trash2 className="w-3 h-3" />
                   </Button>

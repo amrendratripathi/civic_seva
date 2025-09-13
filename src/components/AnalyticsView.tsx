@@ -30,24 +30,33 @@ const AnalyticsView = () => {
   };
 
   return (
-    <div className="space-y-8 animate-fade-in">
-      <div className="flex flex-col lg:flex-row gap-4 items-start lg:items-center justify-between">
-        <h1 className="text-3xl font-bold text-foreground">Analytics Dashboard</h1>
-        <Button
-          onClick={exportCSV}
-          className="bg-gradient-button text-white glow-effect hover:scale-105 transition-transform"
-        >
-          <Download className="w-4 h-4 mr-2" />
-          Export CSV
-        </Button>
+    <div className="space-y-8">
+      <div className="text-center mb-12">
+        <h1 className="text-5xl font-extrabold text-neutral-900 mb-4">
+          Analytics Dashboard
+        </h1>
+        <p className="text-xl text-neutral-600 max-w-2xl mx-auto">
+          Comprehensive insights and data visualization for civic management
+        </p>
+        <div className="mt-6">
+          <Button
+            onClick={exportCSV}
+            className="bg-gradient-to-r from-[hsl(32_100%_50%)] to-[hsl(25_95%_55%)] text-white hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+          >
+            <Download className="w-4 h-4 mr-2" />
+            Export CSV
+          </Button>
+        </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Bar Chart - Complaints by Type */}
-        <div className="bg-gradient-card p-6 rounded-xl border border-border card-hover">
+        <div className="bg-white/70 backdrop-blur-sm p-8 rounded-2xl border border-white/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
           <div className="flex items-center gap-3 mb-6">
-            <BarChart3 className="w-6 h-6 text-primary" />
-            <h2 className="text-xl font-semibold text-card-foreground">Complaints by Type</h2>
+            <div className="w-10 h-10 rounded-xl bg-[hsl(30_95%_90%)] flex items-center justify-center">
+              <BarChart3 className="w-5 h-5 text-[hsl(32_100%_50%)]" />
+            </div>
+            <h2 className="text-2xl font-bold text-neutral-900">Complaints by Type</h2>
           </div>
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={complaintsByType}>
@@ -77,10 +86,12 @@ const AnalyticsView = () => {
         </div>
 
         {/* Pie Chart - Solved vs Unsolved */}
-        <div className="bg-gradient-card p-6 rounded-xl border border-border card-hover">
+        <div className="bg-white/70 backdrop-blur-sm p-8 rounded-2xl border border-white/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
           <div className="flex items-center gap-3 mb-6">
-            <PieIcon className="w-6 h-6 text-secondary" />
-            <h2 className="text-xl font-semibold text-card-foreground">Status Distribution</h2>
+            <div className="w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center">
+              <PieIcon className="w-5 h-5 text-green-600" />
+            </div>
+            <h2 className="text-2xl font-bold text-neutral-900">Status Distribution</h2>
           </div>
           <ResponsiveContainer width="100%" height={300}>
             <PieChart>
@@ -128,10 +139,12 @@ const AnalyticsView = () => {
       </div>
 
       {/* Line Chart - Daily Complaints */}
-      <div className="bg-gradient-card p-6 rounded-xl border border-border card-hover">
+      <div className="bg-white/70 backdrop-blur-sm p-8 rounded-2xl border border-white/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
         <div className="flex items-center gap-3 mb-6">
-          <TrendingUp className="w-6 h-6 text-accent" />
-          <h2 className="text-xl font-semibold text-card-foreground">Daily Complaints (Last 30 Days)</h2>
+          <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center">
+            <TrendingUp className="w-5 h-5 text-blue-600" />
+          </div>
+          <h2 className="text-2xl font-bold text-neutral-900">Daily Complaints (Last 30 Days)</h2>
         </div>
         <ResponsiveContainer width="100%" height={400}>
           <LineChart data={dailyComplaints}>
@@ -166,23 +179,23 @@ const AnalyticsView = () => {
       </div>
 
       {/* Data Table */}
-      <div className="bg-gradient-card p-6 rounded-xl border border-border">
-        <h2 className="text-xl font-semibold text-card-foreground mb-6">Raw Data</h2>
+      <div className="bg-white/70 backdrop-blur-sm p-8 rounded-2xl border border-white/20 shadow-lg">
+        <h2 className="text-2xl font-bold text-neutral-900 mb-6">Raw Data</h2>
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead>
-              <tr className="border-b border-border">
-                <th className="text-left py-3 px-4 text-card-foreground font-semibold">Type</th>
-                <th className="text-left py-3 px-4 text-card-foreground font-semibold">Count</th>
-                <th className="text-left py-3 px-4 text-card-foreground font-semibold">Percentage</th>
+              <tr className="border-b border-neutral-200">
+                <th className="text-left py-4 px-4 text-neutral-900 font-semibold">Type</th>
+                <th className="text-left py-4 px-4 text-neutral-900 font-semibold">Count</th>
+                <th className="text-left py-4 px-4 text-neutral-900 font-semibold">Percentage</th>
               </tr>
             </thead>
             <tbody>
               {complaintsByType.map((item, index) => (
-                <tr key={item.name} className="border-b border-border/50 hover:bg-muted/20 transition-colors">
-                  <td className="py-3 px-4 text-muted-foreground">{item.name}</td>
-                  <td className="py-3 px-4 text-muted-foreground">{item.value}</td>
-                  <td className="py-3 px-4 text-muted-foreground">
+                <tr key={item.name} className="border-b border-neutral-100 hover:bg-neutral-50 transition-colors">
+                  <td className="py-4 px-4 text-neutral-700 font-medium">{item.name}</td>
+                  <td className="py-4 px-4 text-neutral-600">{item.value}</td>
+                  <td className="py-4 px-4 text-neutral-600">
                     {((item.value / stats.total) * 100).toFixed(1)}%
                   </td>
                 </tr>

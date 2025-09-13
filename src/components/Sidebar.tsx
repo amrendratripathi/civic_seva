@@ -2,12 +2,13 @@ import { NavLink } from 'react-router-dom';
 import { Home, FileText, BarChart3, User, Bell, Shield } from 'lucide-react';
 
 const Sidebar = () => {
+  // Use paths relative to the mounted dashboard route ("/dashboard/*")
   const navItems = [
-    { path: '/', icon: Home, label: 'Dashboard' },
-    { path: '/complaints', icon: FileText, label: 'Complaints' },
-    { path: '/analytics', icon: BarChart3, label: 'Analytics' },
-    { path: '/profile', icon: User, label: 'Profile' },
-    { path: '/notifications', icon: Bell, label: 'Notifications' },
+    { path: '', icon: Home, label: 'Dashboard' },
+    { path: 'complaints', icon: FileText, label: 'Complaints' },
+    { path: 'analytics', icon: BarChart3, label: 'Analytics' },
+    { path: 'profile', icon: User, label: 'Profile' },
+    { path: 'notifications', icon: Bell, label: 'Notifications' },
   ];
 
   return (

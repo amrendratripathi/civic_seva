@@ -1,6 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
 import Sidebar from '@/components/Sidebar';
-import BlobCursor from '@/components/BlobCursor';
 import DashboardHome from '@/components/DashboardHome';
 import ComplaintsView from '@/components/ComplaintsView';
 import AnalyticsView from '@/components/AnalyticsView';
@@ -9,8 +8,7 @@ import NotificationsView from '@/components/NotificationsView';
 
 const Dashboard = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <BlobCursor />
+    <div className="min-h-screen bg-gradient-to-br from-neutral-50 to-neutral-100">
       <Sidebar />
       
       <main className="ml-64 min-h-screen">
