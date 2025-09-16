@@ -37,7 +37,7 @@ const HomeLanding = () => {
             <div className="flex items-center justify-between gap-3">
               <div className="flex items-center gap-2.5 text-neutral-900">
                 <div className="w-8 h-8 rounded-md" style={{ background: "linear-gradient(135deg, hsl(32 100% 50%), hsl(25 95% 55%))" }} />
-                <span className="font-extrabold text-base tracking-wide">Civic Sathi</span>
+                <span className="font-extrabold text-base tracking-wide">Civic Setu</span>
               </div>
               <nav className="hidden md:flex items-center gap-5 text-[14px] text-neutral-700 dock-nav">
                 <a href="#home" className="dock-item btn-pop cursor-pointer select-none px-3 py-1.5 rounded-full hover:text-black hover:bg-neutral-50">Home</a>
@@ -61,7 +61,7 @@ const HomeLanding = () => {
               Smart Civic Solutions
             </h1>
             <p className="mt-6 text-xl text-neutral-600 max-w-4xl mx-auto leading-relaxed">
-              Civic Sathi revolutionizes urban problem-solving with AI-powered features that automatically 
+              Civic Setu revolutionizes urban problem-solving with AI-powered features that automatically 
               locate issues, route them to the right departments, and generate intelligent descriptions 
               from photos. Making cities smarter, one report at a time.
             </p>
@@ -215,9 +215,9 @@ const HomeLanding = () => {
 
           {/* About Section */}
           <div id="about" className="mt-24 text-center">
-            <h2 className="text-4xl font-extrabold mb-6 scroll-reveal">About Civic Sathi</h2>
+            <h2 className="text-4xl font-extrabold mb-6 scroll-reveal">About Civic Setu</h2>
             <p className="text-lg text-neutral-600 max-w-4xl mx-auto leading-relaxed scroll-reveal">
-              Civic Sathi is an AI-powered civic engagement platform that bridges the gap between citizens 
+              Civic Setu is an AI-powered civic engagement platform that bridges the gap between citizens 
               and municipal authorities. By leveraging cutting-edge artificial intelligence, we make urban 
               problem-solving effortless, efficient, and transparent. Our platform automatically processes 
               citizen reports, routes them to the appropriate departments, and provides real-time tracking 
@@ -225,7 +225,7 @@ const HomeLanding = () => {
             </p>
             <p className="text-lg text-neutral-600 max-w-4xl mx-auto leading-relaxed mt-6 scroll-reveal">
               From potholes to streetlight outages, from sanitation issues to traffic problems - 
-              Civic Sathi ensures every urban concern is addressed promptly and professionally. 
+              Civic Setu ensures every urban concern is addressed promptly and professionally. 
               Join thousands of citizens who are already making their cities smarter and better.
             </p>
           </div>
@@ -233,7 +233,7 @@ const HomeLanding = () => {
       </section>
 
       <footer className="py-8 text-center text-sm text-neutral-500">
-        © {new Date().getFullYear()} Civic Glow. All rights reserved.
+        © {new Date().getFullYear()} Civic Setu. All rights reserved.
       </footer>
     </div>
   );
