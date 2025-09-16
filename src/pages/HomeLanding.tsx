@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const HomeLanding = () => {
   useEffect(() => {
@@ -48,10 +49,38 @@ const HomeLanding = () => {
               </nav>
               <Link
                 to="/login"
-                className="btn-pop rounded-full px-4 py-1.5 font-semibold text-[hsl(32_100%_50%)] border border-[hsl(32_100%_50%)] hover:bg-[hsl(32_100%_50%/0.06)]"
+                className="hidden md:inline-flex btn-pop rounded-full px-4 py-1.5 font-semibold text-[hsl(32_100%_50%)] border border-[hsl(32_100%_50%)] hover:bg-[hsl(32_100%_50%/0.06)]"
               >
                 Login
               </Link>
+              <div className="md:hidden">
+                <Sheet>
+                  <SheetTrigger asChild>
+                    <button aria-label="Open menu" className="inline-flex items-center justify-center w-9 h-9 rounded-md border hover:bg-neutral-50">
+                      <span className="relative block w-5 h-3">
+                        <span className="absolute inset-x-0 top-0 h-0.5 bg-neutral-800"></span>
+                        <span className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-0.5 bg-neutral-800"></span>
+                        <span className="absolute inset-x-0 bottom-0 h-0.5 bg-neutral-800"></span>
+                      </span>
+                    </button>
+                  </SheetTrigger>
+                  <SheetContent side="right" className="bg-white">
+                    <div className="mt-8 flex flex-col gap-2">
+                      <a href="#home" className="px-3 py-2 rounded-md text-neutral-800 hover:bg-neutral-50">Home</a>
+                      <a href="#features" className="px-3 py-2 rounded-md text-neutral-800 hover:bg-neutral-50">Features</a>
+                      <a href="#ai-powered" className="px-3 py-2 rounded-md text-neutral-800 hover:bg-neutral-50">AI Features</a>
+                      <a href="#how-it-works" className="px-3 py-2 rounded-md text-neutral-800 hover:bg-neutral-50">How it Works</a>
+                      <a href="#about" className="px-3 py-2 rounded-md text-neutral-800 hover:bg-neutral-50">About</a>
+                      <Link
+                        to="/login"
+                        className="mt-2 inline-flex items-center justify-center rounded-md px-4 py-2 font-semibold text-[hsl(32_100%_50%)] border border-[hsl(32_100%_50%)] hover:bg-[hsl(32_100%_50%/0.06)]"
+                      >
+                        Login
+                      </Link>
+                    </div>
+                  </SheetContent>
+                </Sheet>
+              </div>
             </div>
           </div>
 
