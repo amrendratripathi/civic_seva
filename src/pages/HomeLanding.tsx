@@ -34,9 +34,9 @@ const HomeLanding = () => {
           muted
           loop
           playsInline
-          className="w-full h-full object-cover opacity-95"
+          className="w-full h-full object-cover opacity-60"
         >
-          <source src="/civic_vid.mp4" type="video/mp4" />
+          <source src="/bg_video/civic_vid.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-br from-neutral-50/60 to-neutral-100/60"></div>
       </div>
