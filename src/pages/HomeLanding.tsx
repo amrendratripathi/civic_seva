@@ -27,8 +27,22 @@ const HomeLanding = () => {
   }, []);
   return (
     <div className="min-h-screen bg-gradient-to-br from-neutral-50 to-neutral-100 text-neutral-900">
+      {/* Background video */}
+      <div className="absolute inset-0 z-0">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-full object-cover opacity-95"
+        >
+          <source src="/civic.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-br from-neutral-50/60 to-neutral-100/60"></div>
+      </div>
+      
       {/* Main container without card system */}
-      <section className="mx-auto max-w-7xl px-6 pt-10 pb-14">
+      <section className="relative z-10 mx-auto max-w-7xl px-6 pt-10 pb-14">
         <div className="relative">
           {/* Top Nav inside card (pill) */}
           <div className="sticky top-4 z-30 relative w-fit mx-auto rounded-full px-3 py-1.5 bg-white border shadow-sm">
@@ -190,6 +204,54 @@ const HomeLanding = () => {
             </div>
           </div>
 
+          {/* Mobile App Section */}
+          <div className="mt-24">
+            <div className="text-center mb-16 scroll-reveal">
+              <h2 className="text-4xl font-extrabold mb-4">Mobile App Experience</h2>
+              <p className="text-lg text-neutral-600 max-w-3xl mx-auto">
+                Experience Civic Setu on your mobile device with our intuitive and powerful app
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+              <div className="text-center scroll-reveal">
+                <div className="bg-white rounded-2xl shadow-lg p-4 mb-4 mx-auto max-w-xs">
+                  <img 
+                    src="/screenshots/login page.jpg" 
+                    alt="Login Page" 
+                    className="w-full h-auto rounded-xl"
+                  />
+                </div>
+                <h3 className="text-xl font-bold mb-2">Secure Login</h3>
+                <p className="text-neutral-600">Quick and secure access to your civic dashboard</p>
+              </div>
+
+              <div className="text-center scroll-reveal">
+                <div className="bg-white rounded-2xl shadow-lg p-4 mb-4 mx-auto max-w-xs">
+                  <img 
+                    src="/screenshots/report_issue.jpg" 
+                    alt="Report Issue" 
+                    className="w-full h-auto rounded-xl"
+                  />
+                </div>
+                <h3 className="text-xl font-bold mb-2">Report Issues</h3>
+                <p className="text-neutral-600">Easily report civic problems with photo uploads</p>
+              </div>
+
+              <div className="text-center scroll-reveal">
+                <div className="bg-white rounded-2xl shadow-lg p-4 mb-4 mx-auto max-w-xs">
+                  <img 
+                    src="/screenshots/profile.jpg" 
+                    alt="Profile Page" 
+                    className="w-full h-auto rounded-xl"
+                  />
+                </div>
+                <h3 className="text-xl font-bold mb-2">Profile Management</h3>
+                <p className="text-neutral-600">Track your reports and manage your account</p>
+              </div>
+            </div>
+          </div>
+
           {/* Features Section */}
           <div id="features" className="mt-24">
             <div className="text-center mb-16 scroll-reveal">
@@ -261,8 +323,8 @@ const HomeLanding = () => {
         </div>
       </section>
 
-      <footer className="py-8 text-center text-sm text-neutral-500">
-        © {new Date().getFullYear()} Civic Setu. All rights reserved.
+      <footer className="relative z-10 py-8 text-center text-sm text-neutral-500">
+        © {new Date().getFullYear()} Civic Setu. All rights reserved. Built by Civic Crew.
       </footer>
     </div>
   );
