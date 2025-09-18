@@ -36,7 +36,7 @@ const HomeLanding = () => {
           playsInline
           className="w-full h-full object-cover opacity-95"
         >
-          <source src="/civic.mp4" type="video/mp4" />
+          <source src="/civic_vid.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-br from-neutral-50/60 to-neutral-100/60"></div>
       </div>
@@ -63,7 +63,7 @@ const HomeLanding = () => {
               </nav>
               <Link
                 to="/login"
-                className="hidden md:inline-flex btn-pop rounded-full px-4 py-1.5 font-semibold text-[hsl(32_100%_50%)] border border-[hsl(32_100%_50%)] hover:bg-[hsl(32_100%_50%/0.06)]"
+                className="hidden md:inline-flex btn-pop rounded-full px-4 py-1.5 font-semibold text-[hsl(32_100%_50%)] border border-[hsl(32_100%_50%)] hover:bg-[hsl(32_100%_50%/0.06)] transition-all duration-200"
               >
                 Login
               </Link>
